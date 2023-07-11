@@ -1,5 +1,3 @@
-import org.apache.jute.compiler.JString;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +12,6 @@ import java.util.Scanner;
 
     boolean licentie;
     int userrank;
-    boolean Cancreatetask;
-    boolean Canviewtask;
     boolean exception = true;
     List<planning> Task = new ArrayList<planning>();
 
@@ -141,6 +137,10 @@ class Docent extends PatternUser {
 
     }
 }
+class DocentAdapter{
 
+
+
+}
 
 

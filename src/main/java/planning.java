@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class planning {
     String Maandag;
     String Dinsdag;
@@ -9,45 +11,29 @@ public class planning {
 
     String TaskName;
 
-    public void setMaandag(String a){
-    this.Maandag = a;
-
-    }
-
-    public void setDinsdag(String a){
-        this.Dinsdag = a;
-
-    }
-
-    public void setWoensdag(String a){
-        this.Woensdag = a;
-
-    }
-
-    public void setDonderdag(String a){
-        this.Donderdag = a;
-
-    }
-
-    public void setVrijdag(String a){
-        this.Vrijdag = a;
-
-    }
-
-    public void setZaterdag(String a){
-        this.Zaterdag = a;
-
-    }
-
-    public void setZondag(String a){
-        this.Zondag = a;
+    public void setWeek(PatternUser a) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Wat wilt u voor maandag plannen");
+                this.Maandag = scanner.nextLine();
+                System.out.println("Wat wilt u voor dinsdag plannen");
+                this.Dinsdag = scanner.nextLine();
+                System.out.println("Wat wilt u voor woensdag plannen");
+                this.Woensdag = scanner.nextLine();
+                System.out.println("Wat wilt u voor donderdag plannen");
+                this.Donderdag = scanner.nextLine();
+                System.out.println("Wat wilt u voor vrijdag plannen");
+                this.Vrijdag = scanner.nextLine();
+                System.out.println("Wat wilt u voor zaterdag plannen");
+                this.Zaterdag = scanner.nextLine();
+                System.out.println("Wat wilt u voor zondag plannen");
+                this.Zondag = scanner.nextLine();
 
     }
     public void setTaskName(String a){
         this.TaskName = a;
     }
 
-    public String getTaskanme(){
+    public String getTaskName(){
        return this.TaskName;
     }
 

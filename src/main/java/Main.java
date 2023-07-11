@@ -1,5 +1,3 @@
-import org.intellij.lang.annotations.Pattern;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;

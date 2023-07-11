@@ -1,9 +1,9 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class planner {
 
+    ListObserver Nameprinter;
 
     public void makeNewtask(PatternUser a){
         Scanner scanner = new Scanner(System.in);
@@ -17,37 +17,25 @@ public class planner {
 
     public void Planfortask(PatternUser a) {
         for (planning item : a.getTasks()) {
-            System.out.println(item.getTaskanme());
+            System.out.println(item.getTaskName());
         }
             Scanner scanner = new Scanner(System.in);
             System.out.println("Typ de gewensde tasknaam in");
         for (planning itm : a.getTasks()) {
-            if (itm.getTaskanme().equals(scanner.nextLine())) {
-                System.out.println("Wat wilt u voor maandag plannen");
-                itm.setMaandag(scanner.nextLine());
-                System.out.println("Wat wilt u voor dinsdag plannen");
-                itm.setDinsdag(scanner.nextLine());
-                System.out.println("Wat wilt u voor woensdag plannen");
-                itm.setWoensdag(scanner.nextLine());
-                System.out.println("Wat wilt u voor donderdag plannen");
-                itm.setDonderdag(scanner.nextLine());
-                System.out.println("Wat wilt u voor vrijdag plannen");
-                itm.setVrijdag(scanner.nextLine());
-                System.out.println("Wat wilt u voor zaterdag plannen");
-                itm.setZaterdag(scanner.nextLine());
-                System.out.println("Wat wilt u voor zondag plannen");
-                itm.setZondag(scanner.nextLine());
+            if (itm.getTaskName().equals(scanner.nextLine())) {
+               itm.setWeek(a);
             }
         }
     }
-    public void AssignTask(List<PatternUser> b,PatternUser a) {
+    public void AssignTask(List<PatternUser> b, PatternUser a) {
         System.out.println("Welke task wilt u geven");
         for (planning item : a.getTasks()) {
-            System.out.println(item.getTaskanme());
+            System.out.println(item.getTaskName());
+            //dit stukje code kan een losse methode worden die wordt aangeroepen code smell
         }
         Scanner scanner = new Scanner(System.in);
         for (planning item : a.getTasks()) {
-            if (item.getTaskanme().equals(scanner.nextLine())) {
+            if (item.getTaskName().equals(scanner.nextLine())) {
                 System.out.println("Welke jonge leerling wilt u deze task geven");
                 for (PatternUser itm : b) {
                     if (itm.getUserrank() == 1) {
@@ -62,15 +50,28 @@ public class planner {
     }
     public void viewStudentTaskPlan(PatternUser a) {
         for (planning item : a.getTasks()) {
-            System.out.println(item.getTaskanme());
+            System.out.println(item.getTaskName());
         }
         Scanner scanner = new Scanner(System.in);
         System.out.println("Typ de gewensde tasknaam in");
         for (planning itm : a.getTasks()) {
-            if (itm.getTaskanme().equals(scanner.nextLine())) {
+            if (itm.getTaskName().equals(scanner.nextLine())) {
                 System.out.println(itm.getWeek());
             }
         }
+    }
+
+
+}
+class ListObserver{
+
+    public void PrintNamelist(PatternUser a){
+
+        for (planning item : a.getTasks()) {
+            System.out.println(item.getTaskName());
+
+        }
+
     }
 
 
