@@ -39,9 +39,10 @@ public class Main {
                            }
                            if (item.getUserrank() == 3) {
                                System.out.println("Van welke student wilt u een task inzien");
+                               String b = scanner.nextLine();
                                for (PatternUser itm : Users) {
                                    if (itm.getUserrank() < 3){
-                                   if (itm.getUsername().equals(scanner.nextLine())) {
+                                   if (itm.getUsername().equals(b)) {
                                         planner.viewStudentTaskPlan(itm);
                                    }  else {
                                        System.out.println("U kunt alleen leerlingen hun rooster inzien");

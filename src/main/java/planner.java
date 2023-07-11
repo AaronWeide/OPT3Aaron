@@ -11,6 +11,7 @@ public class planner {
         System.out.println("Hoe noemt u deze task");
         task.setTaskName(scanner.nextLine());
         a.addTask(task);
+        System.out.println("Task succesvol toegevoegd");
 
     }
 
@@ -18,11 +19,13 @@ public class planner {
         for (planning item : a.getTasks()) {
             System.out.println(item.getTaskName());
         }
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("Typ de gewensde tasknaam in");
+            String b = scanner.nextLine();
         for (planning itm : a.getTasks()) {
-            if (itm.getTaskName().equals(scanner.nextLine())) {
-               itm.setWeek();
+            if (itm.getTaskName().equals(b)) {
+                itm.setWeek();
             }
         }
     }
@@ -30,11 +33,11 @@ public class planner {
         System.out.println("Welke task wilt u geven");
         for (planning item : a.getTasks()) {
             System.out.println(item.getTaskName());
-            //dit stukje code kan een losse methode worden die wordt aangeroepen code smell
         }
         Scanner scanner = new Scanner(System.in);
+        String c = scanner.nextLine();
         for (planning item : a.getTasks()) {
-            if (item.getTaskName().equals(scanner.nextLine())) {
+            if (item.getTaskName().equals(c)) {
                 System.out.println("Welke jonge leerling wilt u deze task geven");
                 for (PatternUser itm : b) {
                     if (itm.getUserrank() == 1) {
@@ -53,8 +56,9 @@ public class planner {
         }
         Scanner scanner = new Scanner(System.in);
         System.out.println("Typ de gewensde tasknaam in");
+        String b = scanner.nextLine();
         for (planning itm : a.getTasks()) {
-            if (itm.getTaskName().equals(scanner.nextLine())) {
+            if (itm.getTaskName().equals(b)) {
                 System.out.println(itm.getWeek());
             }
         }

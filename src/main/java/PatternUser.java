@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
  class PatternUser {
-//     Abstract class PatterUser
 
     int age;
     Boolean loggedInStatus;
