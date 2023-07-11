@@ -5,15 +5,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
     String SelectACC;
-    String text = new String();
+    String text;
     Scanner scanner = new Scanner(System.in);
-    List<PatternUser> Users = new ArrayList<PatternUser>();
+    List<PatternUser> Users = new ArrayList<>();
     boolean flag = false;
-    String calanderchoice = new String();
+    String calanderchoice;
 
 
 
-        while (flag == false) {
+        while (!flag) {
             System.out.println("Welkom bij het rooster! Heeft u al een account (Y/N)");
             text = scanner.nextLine();
 
@@ -24,7 +24,6 @@ public class Main {
                 }
                  SelectACC = scanner.nextLine();
                if (SelectACC.equals("b") || SelectACC.equals("B")) {
-                   flag = false;
                 } else {
                    planner planner = new planner();
                    for (PatternUser item : Users) {

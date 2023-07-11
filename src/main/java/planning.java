@@ -11,7 +11,7 @@ public class planning {
 
     String TaskName;
 
-    public void setWeek(PatternUser a) {
+    public void setWeek() {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Wat wilt u voor maandag plannen");
                 this.Maandag = scanner.nextLine();

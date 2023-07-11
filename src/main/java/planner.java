@@ -12,7 +12,6 @@ public class planner {
         task.setTaskName(scanner.nextLine());
         a.addTask(task);
 
-
     }
 
     public void Planfortask(PatternUser a) {
@@ -23,7 +22,7 @@ public class planner {
             System.out.println("Typ de gewensde tasknaam in");
         for (planning itm : a.getTasks()) {
             if (itm.getTaskName().equals(scanner.nextLine())) {
-               itm.setWeek(a);
+               itm.setWeek();
             }
         }
     }

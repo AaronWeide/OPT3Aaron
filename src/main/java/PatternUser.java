@@ -137,10 +137,5 @@ class Docent extends PatternUser {
 
     }
 }
-class DocentAdapter{
-
-
-
-}
 
 
