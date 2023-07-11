@@ -1,5 +1,10 @@
+import org.apache.jute.compiler.JString;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-abstract class PatternUser {
+ class PatternUser {
+//     Abstract class PatterUser
 
     int age;
     Boolean loggedInStatus;
@@ -11,9 +16,25 @@ abstract class PatternUser {
     int userrank;
     boolean Cancreatetask;
     boolean Canviewtask;
-    boolean exception = false;
+    boolean exception = true;
+    List<planning> Task = new ArrayList<planning>();
 
-    public void setCreds(int age) {
+
+    public void setCreds() {
+        Scanner scanner = new Scanner(System.in);
+        this.userrank = this.getUserrank();
+        System.out.println("Geef uw naam op");
+        this.username = scanner.nextLine();
+        System.out.println("Geef uw wachtwoord op");
+        this.password = scanner.nextLine();
+        this.age = age;
+        System.out.println( getString() + " Account succesvol aangemaakt");
+        isNoException();
+    }
+
+    public String getString() {
+        return "Onbekend";
+
     }
 
     public int getAge(){
@@ -21,9 +42,9 @@ abstract class PatternUser {
         return this.age;
     }
 
-    public void isException(){
+    public void isNoException(){
 
-        this.exception = true;
+        this.exception = false;
 
     }
 
@@ -60,17 +81,17 @@ abstract class PatternUser {
         return this.kleurenblind;
 
     }
-    public void setUserrank(int a){
-
-        this.userrank = a;
-
-    }
 
     public int getUserrank(){
 
         return this.userrank;
     }
-
+     public void addTask(planning a){
+        this.Task.add(a);
+     }
+     public List<planning> getTasks(){
+        return this.Task;
+     }
 }
 
 
@@ -79,52 +100,46 @@ class Student extends PatternUser {
 
 
     @Override
-    public void setCreds(int age) {
-        Scanner scanner = new Scanner(System.in);
-        this.userrank = 1;
-            System.out.println("Geef uw naam op");
-            this.username = scanner.nextLine();
-            System.out.println("Geef uw wachtwoord op");
-            this.password = scanner.nextLine();
-            this.age = age;
-            System.out.println("Minderjarig studenten Account succesvol aangemaakt");
-        }
-
+    public int getUserrank() {
+        return 1;
     }
-
-
-class Volwassenstudent extends PatternUser {
-
 
     @Override
-    public void setCreds(int age) {
-        Scanner scanner = new Scanner(System.in);
-        this.userrank = 2;
-        System.out.println("Geef uw naam op");
-        this.username = scanner.nextLine();
-        System.out.println("Geef uw wachtwoord op");
-        this.password = scanner.nextLine();
-        this.age = age;
-        System.out.println("Volwassen studenten Account succesvol aangemaakt");
+    public String getString() {
+        return "minderjarige student";
+
+    }
+}
+
+    class Volwassenstudent extends PatternUser {
+
+
+        @Override
+        public int getUserrank() {
+            return 2;
+
+        }
+        @Override
+        public String getString() {
+            return "Student";
+
+        }
     }
 
-}
 
 class Docent extends PatternUser {
 
 
     @Override
-    public void setCreds(int age) {
-        Scanner scanner = new Scanner(System.in);
-        this.userrank = 3;
-        System.out.println("Geef uw naam op");
-        this.username = scanner.nextLine();
-        System.out.println("Geef uw wachtwoord op");
-        this.password = scanner.nextLine();
-        this.age = age;
-        System.out.println("Docenten Account succesvol aangemaakt");
-    }
+    public int getUserrank() {
+        return 3;
 
+    }
+    @Override
+    public String getString() {
+        return "Docent";
+
+    }
 }
 
 
