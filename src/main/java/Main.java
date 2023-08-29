@@ -9,7 +9,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     List<PatternUser> Users = new ArrayList<>();
     boolean flag = false;
-    String calanderchoice;
+
 
 
 
@@ -54,6 +54,7 @@ public class Main {
                            }
 
                            System.out.println("Uw user rank is: " + item.getUserrank());
+                           String calanderchoice = "Null";
                        calanderchoice = scanner.nextLine();
                        if (item.getUserrank() == 2 && calanderchoice.equals("B")) {
                            planner.makeNewtask(item);
@@ -61,12 +62,13 @@ public class Main {
                            if (item.getUserrank() == 2 && calanderchoice.equals("C")) {
                                planner.AssignTask(Users, item);
                            }
-                       if (item.getUserrank() == 1 || item.getUserrank() == 2 && calanderchoice.equals("A")) {
-                           planner.Planfortask(item);
-                       }
-                           if (item.getUserrank() == 1 || item.getUserrank() == 2 && calanderchoice.equals("X")) {
+                           if (item.getUserrank() == 1 && calanderchoice.equals("X") || item.getUserrank() == 2 && calanderchoice.equals("X")) {
                                planner.viewStudentTaskPlan(item);
                            }
+                       if (item.getUserrank() == 1 && calanderchoice.equals("A")  || item.getUserrank() == 2 && calanderchoice.equals("A")) {
+                           planner.Planfortask(item);
+                       }
+
 
                     }
                    }
@@ -76,8 +78,9 @@ public class Main {
 
                 }
             } else if (text.equals("N") || text.equals("n")) {
-                Setup program = new Setup();
-                Users.add(Setup.MakeUser());
+               PatternUser a = SetupFactory.createuser();
+               a.setCreds();
+                Users.add(a);
             } else {
                 System.out.println("Graag een Y of een N invullen");
             }
